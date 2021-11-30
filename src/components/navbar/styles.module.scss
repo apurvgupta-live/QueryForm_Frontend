@@ -1,0 +1,29 @@
+.navbar_main_container {
+  display: flex;
+  background-color: #fff;
+  -webkit-box-shadow: 0 4px 6px -6px black;
+  -moz-box-shadow: 0 4px 6px -6px black;
+  box-shadow: 0 4px 6px -6px black;
+  padding: 0px 20px;
+}
+.nav_bar_list {
+  display: flex;
+  list-style-type: none;
+  li {
+    margin: 0px 20px;
+  }
+  :hover {
+    border-color: aqua;
+  }
+}
+.img_logo {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+.second_container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}

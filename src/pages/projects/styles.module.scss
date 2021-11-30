@@ -1,0 +1,77 @@
+.root {
+  background-color: #80808050;
+}
+
+.prodcuts_table_container {
+  width: 100%;
+  overflow: scroll;
+}
+.prodcuts_table {
+  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 0.2em;
+  tr {
+    border-spacing: 0 15px;
+
+    th {
+      font-weight: 400;
+      font-size: 1rem;
+      min-width: 300px;
+      text-align: left;
+      background-color: #1b1b1b;
+      color: white;
+      padding: 15px 0;
+      div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+    td {
+      min-width: 300px;
+      background-color: white;
+    }
+  }
+}
+
+.search_bar {
+  width: 300px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid grey;
+  display: block;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 80%;
+    outline: none;
+    border: 0px;
+  }
+}
+
+.second_nav_header {
+  display: flex;
+  padding: 10px 0px;
+  gap: 30px;
+}
+
+.add_project {
+  background-color: cadetblue;
+  width: 140px;
+  border: 0px;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+  border-radius: 4px;
+  svg {
+    path {
+      stroke: white;
+    }
+  }
+}
