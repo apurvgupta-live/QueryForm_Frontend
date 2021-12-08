@@ -9,12 +9,12 @@ type props = {
   length?: boolean;
   disabled?: boolean;
   value?: string;
-  type?: string; 
+  type?: string;
 };
 
 const TextInput = React.forwardRef(
   (
-    { title, children, style, validator, length, disabled, value ,type}: props,
+    { title, children, style, validator, length, disabled, value, type }: props,
     ref: any
   ) => {
     const [errorMsg, setErrorMsg] = useState("");

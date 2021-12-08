@@ -1,45 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { getQueries } from "../../apis/queryForm";
 import NavBar from "../../components/navbar";
 import styles from "./styles.module.scss";
 import { AiOutlineDown, AiOutlineSearch } from "react-icons/ai";
 import { GrAdd } from "react-icons/gr";
-// import addquery_form from "../../Screens/AddQuery/addquery_form";
 const tableHeading = [
-  "Ticket No.",
-  "Organization Name",
-  "Customer Name",
-  "Customer Email ID",
-  "Customer Mob.No.",
-  "Query Type",
-  "Other Query Type",
-  "Query Description",
-  "Query Nature",
-  "Query Assigned To",
-  "Team Name",
-  "Query Status",
-  "Stage Change Date",
-  "Future Request Reason",
-  "Query Ageing",
-  "Created Date and Time",
-  "Created By",
-  "Modify Date and Time",
-  "Modify By",
-  "Closure Date and Time",
-  "Testing Status",
-  "Testing Done By",
-  "Testing Ageing",
-  "Testing Completion Date",
-  "Priority",
-  "Notes",
-  "Attachment",
-  "Total Ageing",
-  "Customer Rating",
-  "Customer Feedback",
+  { name: "Ticket No.", value: "ticket_no" },
+  { name: "Organization Name", value: "organization_name" },
+  { name: "Customer Name", value: "customer_name" },
+  { name: "Customer Email ID", value: "customer_email_id" },
+  { name: "Customer Mob.No.", value: "mobile_no" },
+  { name: "Query Type", value: "type_of_query" },
+  { name: "Status", value: "status" },
+  { name: "Other Query Type", value: "other query type" },
+  { name: "Query Description", value: "query description" },
+  { name: "Query Nature", value: "Query Nature" },
+  { name: "Query Assigned To", value: "Query Assigned To" },
+  { name: "Team Name", value: "Team Name" },
+  { name: "Query Status", value: "Query Status" },
+  { name: "Stage Change Date", value: "Stage Change Date" },
+  { name: "Future Request Reason", value: "Future Request Reason" },
+  { name: "Query Ageing", value: "Query Ageing" },
+  { name: "Created Date and Time", value: "Created Date and Time" },
+  { name: "Created By", value: "Created By" },
+  { name: "Modify Date and Time", value: "Modify Date and Time" },
+  { name: "Modify By", value: "Modify By" },
+  { name: "Closure Date and Time", value: "Closure Date and Time" },
+  { name: "Testing Status", value: "Testing Status" },
+  { name: "Testing Done By", value: "Testing Done By" },
+  { name: "Testing Ageing", value: "Testing Ageing" },
+  { name: "Priority", value: "Priority" },
+  { name: "Notes", value: "Notes" },
+  { name: "Attachment", value: "attachment" },
+  { name: "Total Ageing", value: "Total Ageing" },
+  { name: "Customer Rating", value: "Customer Rating" },
+  { name: "Customer Feedback", value: "Customer Feedback" },
 ];
 
 const ProjectPage = () => {
+  const [queriesArr, setQueriesArr] = useState([]);
   const history = useHistory();
+  useEffect(() => {
+    getQueries()
+      .then((data) => {
+        console.log("query", data);
+        if (data.isValidExecution) {
+          setQueriesArr(data.queries);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className={styles.root}>
       <NavBar />
@@ -75,92 +89,21 @@ const ProjectPage = () => {
             {tableHeading.map((item, index) => (
               <th key={index}>
                 <div>
-                  {item}
+                  {item.name}
                   <AiOutlineDown />
                 </div>
               </th>
             ))}
           </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Maria Anders</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Berglunds snabbköp</td>
-            <td>Christina Berglund</td>
-            <td>Christina Berglund</td>
-            <td>Christina Berglund</td>
-            <td>Christina Berglund</td>
-            <td>Sweden</td>
-          </tr>
-          <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td>Francisco Chang</td>
-            <td>Francisco Chang</td>
-            <td>Mexico</td>
-            <td>Mexico</td>
-          </tr>
-          <tr>
-            <td>Ernst Handel</td>
-            <td>Roland Mendel</td>
-            <td>Roland Mendel</td>
-            <td>Roland Mendel</td>
-            <td>Austria</td>
-            <td>Austria</td>
-          </tr>
-          <tr>
-            <td>Island Trading</td>
-            <td>Island Trading</td>
-            <td>Island Trading</td>
-            <td>Helen Bennett</td>
-            <td>Helen Bennett</td>
-            <td>UK</td>
-          </tr>
-          <tr>
-            <td>Königlich Essen</td>
-            <td>Philip Cramer</td>
-            <td>Philip Cramer</td>
-            <td>Philip Cramer</td>
-            <td>Philip Cramer</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Laughing Bacchus Winecellars</td>
-            <td>Yoshi Tannamuri</td>
-            <td>Yoshi Tannamuri</td>
-            <td>Yoshi Tannamuri</td>
-            <td>Yoshi Tannamuri</td>
-            <td>Canada</td>
-          </tr>
-          <tr>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Giovanni Rovelli</td>
-            <td>Giovanni Rovelli</td>
-            <td>Italy</td>
-          </tr>
-          <tr>
-            <td>North/South</td>
-            <td>North/South</td>
-            <td>North/South</td>
-            <td>Simon Crowther</td>
-            <td>Simon Crowther</td>
-            <td>UK</td>
-          </tr>
-          <tr>
-            <td>Paris spécialités</td>
-            <td>Marie Bertrand</td>
-            <td>Marie Bertrand</td>
-            <td>Marie Bertrand</td>
-            <td>Marie Bertrand</td>
-            <td>France</td>
-          </tr>
+
+          {queriesArr.map((query, index) => (
+            <tr key={index}>
+              <td>{index}</td>
+              {tableHeading.map((heading, index) => (
+                <td key={index}>{query[heading.value] || " "}</td>
+              ))}
+            </tr>
+          ))}
         </table>
       </div>
     </div>
