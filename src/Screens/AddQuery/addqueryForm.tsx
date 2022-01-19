@@ -13,24 +13,10 @@ import { useDispatch } from "react-redux";
 
 const AddQuery = () => {
   const history = useHistory();
-  // const [queryData, setQueryData] = useState({
-  //   mobile_no: "",
-  //   type_of_query: "",
-  //   attachment: "",
-  //   description: "",
-  // });
-  // const onHandleChange = (name: any) => (e: any) => {
-  //   if ((name = "type_of_query")) {
-  //     setQueryData({ ...queryData, [name]: e.value });
-  //   } else {
-  //     setQueryData({ ...queryData, [name]: e.target.value });
-  //   }
-  // };
   const mobileNoRef: any = useRef();
   const organizationNameRef: any = useRef();
   const customerNameRef: any = useRef();
   const customereEmailIdRef: any = useRef();
-  // const customerMobNoRef: any = useRef();
   const queryTypeRef: any = useRef();
   const attachmentRef: any = useRef();
   const descriptionRef: any = useRef();
@@ -54,7 +40,6 @@ const AddQuery = () => {
       organization_name: organizationNameRef.current.value,
       customer_name: customerNameRef.current.value,
       customer_email_id: customereEmailIdRef.current.value,
-      // customer_mob_no: customerMobNoRef.current.value,
       type_of_query: querytype,
       attachment: attachmentRef.current.value,
       description: descriptionRef.current.value,
